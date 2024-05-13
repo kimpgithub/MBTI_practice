@@ -1,5 +1,12 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
+    <!-- 기존 테마 -->
+    <style name="AppTheme" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- 기존 테마의 속성들 -->
+    </style>
 
-    <style name="Theme.MBTI_practice" parent="android:Theme.Material.Light.NoActionBar" />
+    <!-- 새로운 테마 추가 -->
+    <style name="Theme.MBTI_practice" parent="Theme.AppCompat.Light.DarkActionBar">
+        <!-- 여기에 테마를 사용자 정의하세요 -->
+    </style>
 </resources>

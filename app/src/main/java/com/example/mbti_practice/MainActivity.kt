@@ -1,3 +1,5 @@
+package com.example.mbti_practice
+
 import androidx.compose.foundation.Image
 import androidx.compose.foundation.layout.*
 import androidx.compose.material3.*
@@ -8,10 +10,53 @@ import androidx.compose.ui.res.painterResource
 import androidx.compose.ui.unit.dp
 import androidx.compose.ui.unit.sp
 import android.content.Context
+import android.content.Intent
+import android.os.Bundle
+import androidx.activity.compose.setContent
+import androidx.appcompat.app.AppCompatActivity
 import androidx.compose.ui.platform.LocalContext
 import androidx.compose.ui.tooling.preview.Preview
-import com.example.mbti_practice.R
 import kotlin.random.Random
+
+
+class MainActivity : AppCompatActivity() {
+    override fun onCreate(savedInstanceState: Bundle?) {
+        super.onCreate(savedInstanceState)
+        setTheme(R.style.Theme_MBTI_practice)
+        setContent {
+            Column {
+
+//                MBTIScreen()
+                val context = LocalContext.current
+                Button(onClick = {
+                    val intent = Intent(context, EnfjActivity::class.java)
+                    context.startActivity(intent)
+                }) {
+                    Text(text = "ENFJ")
+                }
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Button(onClick = {
+                    val intent = Intent(context, EnfpActivity::class.java)
+                    context.startActivity(intent)
+                }) {
+                    Text(text = "ENFP")
+                }
+                Spacer(modifier = Modifier.height(16.dp))
+
+                Button(onClick = {
+                    val intent = Intent(context, EntjActivity::class.java)
+                    context.startActivity(intent)
+                }) {
+                    Text(text = "ENTJ")
+                }
+
+
+
+            }
+        }
+    }
+}
 
 @Preview
 @Composable
@@ -51,7 +96,9 @@ fun MBTIScreen() {
     Column(modifier = Modifier.fillMaxSize()) {
         Button(
             onClick = { selectedTypeIndex = Random.nextInt(mbtiTypes.size) },
-            modifier = Modifier.align(Alignment.CenterHorizontally).padding(top = 16.dp)
+            modifier = Modifier
+                .align(Alignment.CenterHorizontally)
+                .padding(top = 16.dp)
         ) {
             Text(text = "Select Random MBTI Type")
         }
